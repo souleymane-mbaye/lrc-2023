@@ -1,0 +1,54 @@
+Exercice 2 du TD1
+
+F1 nou rend FALSE
+F2 apres execution pas à pas nous arrivons sur des feuilles ouvertes: c, a b, non a non c, ...
+F3 nous rend FALSE: les deux branches sont fermées
+F4 est satisfiable
+F5 est satisfiable
+F6 est satisfiable
+
+3 Diagnostic médical
+
+3.1
+(a) sup38 -> fievre
+(b) grippe -> tamifu
+(c) (fievre and toux) -> grippe
+(d) toux and sup38
+
+3.2
+Formule permettant de déterminer s'il faut prendre du tamifu
+(sup38 -> fievre) and (grippe -> tamifu) and ((fievre and toux) -> grippe) and (toux and sup38) and (not tamifu)
+and imp Sup38 Fievre and imp Grippe Tamifu and imp and Fievre Toux Grippe and and Toux Sup38 not Tamifu
+
+Toutes les branches sont fermées. Donc instisfiable. Donc (a) et (b) et (c) et (d) implique tamifu.
+Le patient doit prendre du tamifu.
+
+3.3
+(c2) (fievre and toux) -> (grippe or bronchite)
+Nouvelle formule permettant de determiner s'il faut prendre du tamifu
+(sup38 -> fievre) and (grippe -> tamifu) and ((fievre and toux) -> (grippe or bronchite)) and (toux and sup38) and (not tamifu)
+and imp Sup38 Fievre and imp Grippe Tamifu and imp and Fievre Toux or Grippe Bronchite and and Toux Sup38 not Tamifu
+
+La branche avec Bronchite vrai est ouverte donc la formule est satisfiable.
+Le patient ne doit pas imperativement prendre du tamifu.
+
+4 Modèles et pré-Modèles
+
+4.1 Les modèles qui satisfont la formule
+   (not a) and b and c
+   (not a) and (not b) and (not c)
+   a and (not b) and (not c)
+   a and b and (not c)
+   a and b and c
+
+   not b and not c, a and b, b and c, a and not c
+
+4.3 
+   a or (a and b) or (a and b and c)
+
+   donne trois pre-modeles:
+   P1 : a
+   P2 : a and b
+   P3 : a and b and c
+
+   P3 inclu P2 inclu P1
